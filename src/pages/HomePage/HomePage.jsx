@@ -29,6 +29,10 @@ export const HomePage = () => {
 
             <div className={cls.intro_list}>
               <AudioPlayer />
+              <AudioPlayer />
+              <AudioPlayer />
+              <AudioPlayer />
+              <AudioPlayer />
             </div>
           </div>
         </div>

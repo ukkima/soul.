@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import cls from "./homepage.module.scss";
-import { AudioPlayer } from "../../components/AudioPlayer/AudioPlayer";
+import { AudioList } from "../../components/AudioList/AudioList";
 
 export const HomePage = () => {
   return (
@@ -27,13 +27,7 @@ export const HomePage = () => {
               </p>
             </div>
 
-            <div className={cls.intro_list}>
-              <AudioPlayer />
-              <AudioPlayer />
-              <AudioPlayer />
-              <AudioPlayer />
-              <AudioPlayer />
-            </div>
+            <AudioList />
           </div>
         </div>
       </section>

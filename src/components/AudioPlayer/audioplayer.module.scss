@@ -124,10 +124,16 @@
     background: #f5f5f5;
   }
 
+  &:hover::-webkit-slider-thumb {
+    outline: none;
+
+    background: #dfdfdf;
+  }
+
   &:active::-webkit-slider-thumb {
     outline: none;
 
-    background: #cfcfcf;
+    background: #bfbfbf;
   }
 }
 
@@ -174,7 +180,11 @@
   transition: 0.3s ease;
 
   &:hover {
-    background-color: #303030;
+    background-color: #343434;
+  }
+
+  &:active {
+    background-color: #3e3e3e;
   }
 
   &.active {

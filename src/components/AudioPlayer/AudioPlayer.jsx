@@ -1,11 +1,11 @@
 import cls from "./Audioplayer.module.scss";
-import HavanaImg from "../../assets/images/havana.jpg";
 import { EllipsisVertical, ArrowDownToLine, Play, Pause } from "lucide-react";
 import { useRef, useState } from "react";
 import classNames from "classnames";
-import Havana from "../../assets/music/Havana.mp3";
 
-export const AudioPlayer = () => {
+export const AudioPlayer = (props) => {
+  const { img, name, author, audio } = props;
+
   const [isPlay, setIsPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -62,15 +62,15 @@ export const AudioPlayer = () => {
       <div className={cls.audio_player__wrapper}>
         <div className={cls.audio_info}>
           <div className={cls.audio_image} onClick={() => handlePlayPause()}>
-            <img src={HavanaImg} alt="audio image" className={cls.image} />
+            <img src={img} alt="audio image" className={cls.image} />
             <div className={cls.audio_icon}>
               {isPlay ? <Pause /> : <Play />}
             </div>
           </div>
 
           <div className={cls.audio_content}>
-            <p className={cls.audio_name}>Havana</p>
-            {!isPlay && <p className={cls.audio_author}>Camila Cabello</p>}
+            <p className={cls.audio_name}>{name}</p>
+            {!isPlay && <p className={cls.audio_author}>{author}</p>}
 
             {isPlay && (
               <div className={cls.audio_control}>
@@ -90,7 +90,7 @@ export const AudioPlayer = () => {
 
             <audio
               ref={audioRef}
-              src={Havana}
+              src={audio}
               loop
               onTimeUpdate={handleTimeUpdate}
               onLoadedMetadata={handleTimeUpdate}
@@ -104,7 +104,7 @@ export const AudioPlayer = () => {
           </button>
 
           <a
-            href={Havana}
+            href={audio}
             download
             className={classNames(cls.sub_button, isOpen ? cls.active : "")}
           >

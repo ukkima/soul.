@@ -97,6 +97,11 @@ export const AudioPlayer = (props) => {
                   value={currentTime}
                   onChange={handleSeek}
                   className={cls.audio_control__input}
+                  style={{
+                    background: `linear-gradient(to right, #fff ${
+                      (currentTime / duration) * 100
+                    }%, #383838 ${(currentTime / duration) * 100}%)`,
+                  }}
                 />
               </div>
             )}

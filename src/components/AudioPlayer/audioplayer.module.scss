@@ -103,12 +103,13 @@
   -webkit-appearance: none;
   appearance: none;
   background: transparent;
+
+  border-radius: 4px;
+
   cursor: pointer;
 
   &::-webkit-slider-runnable-track {
-    background-color: #383838;
     height: 6px;
-    border-radius: 4px;
   }
 
   &::-webkit-slider-thumb {

@@ -1,10 +1,11 @@
 import cls from "./Audioplayer.module.scss";
 import { EllipsisVertical, ArrowDownToLine, Play, Pause } from "lucide-react";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
+import { useClickOutside } from "@reactuses/core";
 
 export const AudioPlayer = (props) => {
-  const { img, name, author, audio } = props;
+  const { img, name, author, audio, onActive, isActive } = props;
 
   const [isPlay, setIsPlay] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -12,6 +13,7 @@ export const AudioPlayer = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const audioRef = useRef(null);
+  const menuRef = useRef(null);
 
   const handleSeek = (e) => {
     audioRef.current.currentTime = e.target.value;
@@ -24,6 +26,7 @@ export const AudioPlayer = (props) => {
   };
 
   const handlePlay = () => {
+    onActive();
     audioRef.current.play();
     setIsPlay(true);
   };
@@ -45,12 +48,22 @@ export const AudioPlayer = (props) => {
     setIsOpen(!isOpen);
   };
 
+  useClickOutside(menuRef, () => {
+    setIsOpen(false);
+  });
+
   const formatDuration = (durationSeconds) => {
     const minutes = Math.floor(durationSeconds / 60);
     const seconds = Math.floor(durationSeconds % 60);
     const formattedSeconds = seconds.toString().padStart(2, "0");
     return `${minutes}:${formattedSeconds}`;
   };
+
+  useEffect(() => {
+    if (!isActive) {
+      handlePause();
+    }
+  }, [isActive]);
 
   return (
     <div
@@ -98,8 +111,8 @@ export const AudioPlayer = (props) => {
           </div>
         </div>
 
-        <div className={cls.menu}>
-          <button onClick={toggleIsOpen} className={cls.audio_button}>
+        <div ref={menuRef} className={cls.menu}>
+          <button onClick={toggleIsOpen} className={cls.menu_button}>
             <EllipsisVertical />
           </button>
 

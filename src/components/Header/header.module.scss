@@ -10,6 +10,14 @@
   top: 0;
   left: 0;
   z-index: 1000;
+
+  transition: 0.3s linear;
+
+  &.active {
+    height: 64px;
+
+    backdrop-filter: blur(10px);
+  }
 }
 
 .header__wrapper {
@@ -79,6 +87,12 @@
 
   &:hover {
     background-color: #131313;
+  }
+
+  &.active {
+    &:hover {
+      background-color: #0000003d;
+    }
   }
 }
 

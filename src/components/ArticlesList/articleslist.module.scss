@@ -1,0 +1,39 @@
+.articles_list {
+  margin-top: 56px;
+}
+
+.articles_list__link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: relative;
+
+  font-size: 18px;
+  font-weight: 300;
+  padding: 0 10px 10px 0;
+
+  transition: 0.3s ease;
+
+  &::after {
+    content: "";
+    width: 0;
+    height: 1px;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    background-color: #fff;
+
+    transition: 0.5s ease;
+  }
+
+  &:hover {
+    padding: 0 0 10px 0;
+
+    &::after {
+      width: 100%;
+    }
+  }
+}

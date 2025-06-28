@@ -1,4 +1,4 @@
-import cls from "./Audioplayer.module.scss";
+import cls from "./audioplayer.module.scss";
 import { EllipsisVertical, ArrowDownToLine, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";

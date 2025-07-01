@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import cls from "./languageselector.module.scss";
 import { Globe, ChevronDown, ChevronUp } from "lucide-react";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 const data = [
   {
-    value: "en",
-    label: "English",
-  },
-  {
     value: "ru",
     label: "Russian",
+  },
+  {
+    value: "en",
+    label: "English",
   },
 ];
 
@@ -17,13 +18,19 @@ export const LanguageSelector = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
+  const languageRef = useRef(null);
+
+  useClickOutside(languageRef, () => {
+    setIsOpen(false);
+  });
+
   const handleSelect = (option) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
 
   return (
-    <div className={cls.LanguageSelector}>
+    <div ref={languageRef} className={cls.LanguageSelector}>
       <button onClick={() => setIsOpen(!isOpen)} className={cls.selector_label}>
         <span className={cls.selector_label__content}>
           <Globe />

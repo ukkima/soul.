@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import cls from "./header.module.scss";
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,19 +26,21 @@ export const Header = () => {
     <header className={classNames(cls.header, scrolled && cls.active)}>
       <div className="container">
         <div className={cls.header__wrapper}>
-          <div className={cls.logo}>Soul.</div>
+          <Link to={"/"} className={cls.logo}>
+            Soul.
+          </Link>
 
           <nav className={cls.nav}>
             <ul className={cls.menu}>
               <li className={cls.menu__item}>
-                <a href="#!" className={cls.menu__link}>
+                <Link to={"/#blog"} className={cls.menu__link}>
                   Blog
-                </a>
+                </Link>
               </li>
               <li className={cls.menu__item}>
-                <a href="#!" className={cls.menu__link}>
+                <Link to={"/about"} className={cls.menu__link}>
                   About
-                </a>
+                </Link>
               </li>
             </ul>
 

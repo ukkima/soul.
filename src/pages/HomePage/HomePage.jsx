@@ -32,7 +32,7 @@ export const HomePage = () => {
           </div>
         </div>
       </section>
-      <section className={cls.blog}>
+      <section id="blog" className={cls.blog}>
         <div className="container">
           <h2 className={cls.blog_title}>Blog</h2>
           <ArticlesList />

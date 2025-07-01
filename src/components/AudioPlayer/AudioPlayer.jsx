@@ -2,7 +2,7 @@ import cls from "./audioplayer.module.scss";
 import { EllipsisVertical, ArrowDownToLine, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
-import { useClickOutside } from "@reactuses/core";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 export const AudioPlayer = (props) => {
   const { img, name, author, audio, onActive, isActive } = props;

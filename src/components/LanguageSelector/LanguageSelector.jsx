@@ -5,12 +5,12 @@ import { useClickOutside } from "../../hooks/useClickOutside";
 
 const data = [
   {
-    value: "ru",
-    label: "Russian",
-  },
-  {
     value: "en",
     label: "English",
+  },
+  {
+    value: "ru",
+    label: "Русский",
   },
 ];
 

@@ -1,9 +1,10 @@
 import classNames from "classnames";
 import cls from "./header.module.scss";
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useLocation } from "react-router";
 
 export const Header = () => {
+  const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
 
   const checkScrollPostion = () => {
@@ -45,7 +46,9 @@ export const Header = () => {
             </ul>
 
             <div className={cls.nav_buttons}>
-              <button
+              <Link
+                to={"/login"}
+                state={{ background: location }}
                 className={classNames(
                   cls.nav_btn,
                   cls.login,
@@ -53,10 +56,14 @@ export const Header = () => {
                 )}
               >
                 Log In
-              </button>
-              <button className={classNames(cls.nav_btn, cls.signup)}>
+              </Link>
+              <Link
+                to={"/signup"}
+                state={{ background: location }}
+                className={classNames(cls.nav_btn, cls.signup)}
+              >
                 Sign Up
-              </button>
+              </Link>
             </div>
           </nav>
         </div>

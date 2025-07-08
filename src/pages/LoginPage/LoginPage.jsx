@@ -3,9 +3,6 @@ import { Link, useLocation } from "react-router";
 import cls from "./loginpage.module.scss";
 
 export const LoginPage = () => {
-  const location = useLocation();
-  console.log(location);
-
   return (
     <Modal>
       <div className={cls.wrapper}>
@@ -30,11 +27,7 @@ export const LoginPage = () => {
 
         <p className={cls.tip}>
           Don't have an account?{" "}
-          <Link
-            to={"/signup"}
-            state={{ background: location }}
-            className={cls.tip_link}
-          >
+          <Link to={"/signup"} className={cls.tip_link}>
             Sign up
           </Link>
         </p>

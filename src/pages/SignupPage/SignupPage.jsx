@@ -1,8 +1,12 @@
 import { Modal } from "../../components/Modal/Modal";
 import { Link } from "react-router";
 import cls from "./signuppage.module.scss";
+import { useContext } from "react";
+import { ModalRouterContext } from "../../contexts/ModalRouterContext";
 
 export const SignupPage = () => {
+  const [background] = useContext(ModalRouterContext);
+
   return (
     <Modal>
       <div className={cls.wrapper}>
@@ -33,7 +37,7 @@ export const SignupPage = () => {
 
         <p className={cls.tip}>
           Have an account?{" "}
-          <Link to={"/login"} className={cls.tip_link}>
+          <Link to={"/login"} state={{ background }} className={cls.tip_link}>
             Log in
           </Link>
         </p>

@@ -1,11 +1,29 @@
 import classNames from "classnames";
 import cls from "./header.module.scss";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
+import { ModalRouterContext } from "../../contexts/ModalRouterContext";
 
 export const Header = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
+
+  const [background, setBackground] = useContext(ModalRouterContext);
+
+  // TODO learn render live component and location, if, []
+  // useEffect(() => {
+  //   if (!location.state?.background) {
+  //     setBackground(location);
+  //   }
+  // }, [location]);
+
+  useEffect(() => {
+    if (!location.state?.background) {
+      setBackground(location);
+    }
+  }, [location]);
+
+  console.log(location);
 
   const checkScrollPostion = () => {
     if (window.scrollY > 100) {
@@ -59,7 +77,7 @@ export const Header = () => {
               </Link>
               <Link
                 to={"/signup"}
-                state={{ background: location }}
+                state={{ background }}
                 className={classNames(cls.nav_btn, cls.signup)}
               >
                 Sign Up

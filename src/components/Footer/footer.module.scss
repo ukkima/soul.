@@ -5,17 +5,12 @@
 
   position: relative;
   z-index: 100;
-
-  backdrop-filter: blur(100px);
 }
 
 .footer__wrapper {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-}
-
-.footer_actions {
 }
 
 .footer_content {
@@ -84,9 +79,9 @@
   right: 0;
   z-index: 1;
 
-  background-color: rgb(27, 76, 255);
+  background-color: rgb(47, 92, 255);
 
-  filter: blur(100px);
+  filter: blur(140px);
 
   border-radius: 50%;
 
@@ -121,9 +116,9 @@
   right: 0;
   z-index: 1;
 
-  background-color: rgb(50, 255, 194);
+  background-color: rgb(77, 255, 202);
 
-  filter: blur(100px);
+  filter: blur(140px);
 
   border-radius: 50%;
   animation: dot-animation-green 20s infinite ease-in-out;

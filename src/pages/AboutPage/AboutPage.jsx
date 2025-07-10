@@ -104,7 +104,7 @@ export const AboutPage = () => {
           <div className={cls.cell}>
             <h6 className={cls.cell_title}>Reading</h6>
             <div className={cls.cell_content}>
-              The Choice <br />
+              The Choice by <br />
               Edith Eva Eger
             </div>
           </div>
@@ -112,7 +112,7 @@ export const AboutPage = () => {
           <div className={cls.cell}>
             <h6 className={cls.cell_title}>Hobby</h6>
             <div className={cls.cell_content}>
-              Programming
+              Programming,
               <br />
               Reading
             </div>

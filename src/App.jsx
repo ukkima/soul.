@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage/HomePage";
 import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { SignupPage } from "./pages/SignupPage/SignupPage";
+import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
 import { ScrollToHashElement } from "./components/ScrollToHashElement/ScrollToHashElement";
 import { Route, Routes, useLocation } from "react-router";
 
@@ -22,6 +23,7 @@ function App() {
         <Routes location={background || location}>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/article/:id" element={<ArticlePage />} />
         </Routes>
       </main>
 

@@ -47,7 +47,7 @@ export const LanguageSelector = () => {
       <button onClick={() => setIsOpen(!isOpen)} className={cls.selector_label}>
         <span className={cls.selector_label__content}>
           <Globe />
-          {langs[currentLanguage].label}
+          {langs[currentLanguage]?.label ?? langs.en.label}
         </span>
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </button>

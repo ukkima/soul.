@@ -1,0 +1,43 @@
+{
+  "header.blog": "Blog",
+  "header.about": "About",
+  "header.login": "Log In",
+  "header.signup": "Sign Up",
+
+  "home.intro.title": "Hello, I'm Imran. I'm a developer.",
+  "home.intro.desc_one": "I have 1 year of experience at IGS Web Start, Coddy, Ingternet, Solvo and as a freelancer.",
+  "home.intro.desc_two": "I value <bold>clarity</bold>, <bold>empathy</bold>, and <bold>integrity</bold> above all else. These ideals guide my approach to problem solving and life in general.",
+  "home.audio.download_button": "Download Song",
+  "home.blog.title": "Blog",
+
+  "about.intro.content.title": "Why hello there!",
+  "about.intro.content.one": "You probably already know my name — so let me just share who I am.",
+  "about.intro.content.two": "I'm a full-stack developer from Ingushetia. I enjoy creating web platforms that make people’s lives a little easier, more connected, and more meaningful.",
+  "about.intro.content.three": "I believe the Internet should remain open and free — and I do what I can as a developer to help keep that idea alive. Whether I'm writing backend logic or designing interfaces, I try to build things that are not just functional, but thoughtful.",
+  "about.intro.content.four": "This isn't just what I do. It's how I think.",
+  "about.intro.content.five": "P.s such a beautiful gif, I couldn’t resist including it :^",
+  "about.table_cell.title_one": "Location",
+  "about.table_cell.title_two": "Experience",
+  "about.table_cell.title_three": "Superpower",
+  "about.table_cell.title_four": "Reading",
+  "about.table_cell.title_five": "Hobby",
+  "about.table_cell.title_six": "Similar animal",
+  "about.table_cell.title_seven": "Use",
+  "about.table_cell.desc_one": "Ingushetia",
+  "about.table_cell.desc_two": "1 year",
+  "about.table_cell.desc_three": "Doing everything at the last minute",
+  "about.table_cell.desc_four": "The Choice<br/> by Edith Eva Eger",
+  "about.table_cell.desc_five": "Programming, Reading",
+  "about.table_cell.desc_six": "Lazy fox",
+
+  "auth.input.username": "Enter your username",
+  "auth.input.password": "Enter your password",
+
+  "login.title": "Welcome back to Soul.",
+  "login.button": "Log In",
+  "login.message": "Don't have an account? <0>Sign up</0>",
+
+  "signup.title": "Welcome to Soul.",
+  "signup.button": "Sign Up",
+  "signup.message": "Have an account? <0>Sign Up</0>"
+}

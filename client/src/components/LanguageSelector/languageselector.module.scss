@@ -16,6 +16,8 @@
   border: 1px solid #ffffff3c;
   border-radius: 6px;
 
+  backdrop-filter: blur(60px);
+
   & svg {
     color: #ffffffbd;
   }
@@ -41,16 +43,7 @@
 
   border-radius: 6px;
   border: 1px solid #ffffff3c;
-}
-
-@media (width <= 800px) {
-  .selector_options {
-    backdrop-filter: blur(60px);
-  }
-
-  .selector_label {
-    backdrop-filter: blur(60px);
-  }
+  backdrop-filter: blur(60px);
 }
 
 .option_button {

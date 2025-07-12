@@ -2,8 +2,11 @@ import classNames from "classnames";
 import cls from "./homepage.module.scss";
 import { AudioList } from "../../components/AudioList/AudioList";
 import { ArticlesList } from "../../components/ArticlesList/ArticlesList";
+import { Trans, useTranslation } from "react-i18next";
 
 export const HomePage = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={cls.animated_wrapper}>
@@ -14,17 +17,16 @@ export const HomePage = () => {
         <div className="container">
           <div className={cls.intro__wrapper}>
             <div className={cls.intro_inner}>
-              <h1 className={cls.title}>Hello, I'm Imran. I'm a developer.</h1>
+              <h1 className={cls.title}>{t("home.intro.title")}</h1>
+              <p className={cls.description}>{t("home.intro.desc_one")}</p>
+
               <p className={cls.description}>
-                I have 1 year of experience at IGS Web Start, Coddy, Ingternet,
-                Solvo and as a freelancer.
-              </p>
-              <p className={cls.description}>
-                I value <span className={cls.bold}>clarity</span>,
-                <span className={cls.bold}> empathy</span>, and
-                <span className={cls.bold}> integrity</span> above all else.
-                These ideals guide my approach to problem solving and life in
-                general.
+                <Trans
+                  i18nKey="home.intro.desc_two"
+                  components={{
+                    bold: <span className={cls.bold} />,
+                  }}
+                />
               </p>
             </div>
 
@@ -34,7 +36,7 @@ export const HomePage = () => {
       </section>
       <section id="blog" className={cls.blog}>
         <div className="container">
-          <h2 className={cls.blog_title}>Blog</h2>
+          <h2 className={cls.blog_title}>{t("home.blog.title")}</h2>
           <ArticlesList />
         </div>
       </section>

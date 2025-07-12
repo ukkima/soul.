@@ -1,0 +1,44 @@
+{
+  "header.blog": "Блог",
+  "header.about": "Обо мне",
+  "header.login": "Войти",
+  "header.signup": "Подписка",
+
+  "home.intro.title": "Привет, Я Имран. Я Разработчик.",
+  "home.intro.desc_one": "У меня есть год опыта работы в компаниях IGS Web Start, Coddy, Ingternet, Solvo, а также в качестве фрилансера.",
+  "home.intro.desc_two": "Я ценю <bold>ясность</bold>, <bold>сочувствие</bold> и <bold>честность</bold> превыше всего. Эти идеалы направляют мой подход к решению проблем и к жизни в целом.",
+  "home.audio.download_button": "Скачать Песню",
+  "home.blog.title": "Блог",
+
+  "about.intro.content.title": "Рад тебя здесь видеть!",
+  "about.intro.content.one": "Вы, наверное, уже знаете моё имя — так что позвольте просто рассказать, кто я.",
+  "about.intro.content.two": "Я full-stack разработчик из Ингушетии. Мне нравится создавать веб-платформы, которые делают жизнь людей немного проще, свободнее и осмысленнее.",
+  "about.intro.content.three": "Я верю, что Интернет должен оставаться открытым и свободным — и как разработчик, я стараюсь делать всё возможное, чтобы поддерживать эту идею. Независимо от того, пишу ли я backend-логику или проектирую интерфейсы, я стремлюсь создавать не просто рабочие решения, а свободные.",
+  "about.intro.content.four": "Это не просто то, что я делаю. Это то, как я думаю.",
+  "about.intro.content.five": "P.S. Такая красивая гифка — не смог не включить её :^",
+  "about.table_cell.title_one": "Нахожусь",
+  "about.table_cell.title_two": "Опыт",
+  "about.table_cell.title_three": "Суперсила",
+  "about.table_cell.title_four": "Читаю",
+  "about.table_cell.title_five": "Хобби",
+  "about.table_cell.title_six": "Схожее животное",
+  "about.table_cell.title_seven": "Использую",
+  "about.table_cell.desc_one": "Ингушетия",
+  "about.table_cell.desc_two": "1 год",
+  "about.table_cell.desc_three": "Делать все в последний момент",
+  "about.table_cell.desc_four": "Выбор от<br/> Эдит Евы Эгер",
+  "about.table_cell.desc_five": "Программирование, Чтение",
+  "about.table_cell.desc_six": "Ленивая лиса",
+
+  "auth.input.fullname": "Введите имя",
+  "auth.input.username": "Введите никнейм",
+  "auth.input.password": "Введите пароль",
+
+  "login.title": "Рады видеть вас снова.",
+  "login.button": "Войти",
+  "login.message": "Еще не подписаны? <0>Подписаться</0>",
+
+  "signup.title": "Добро пожаловать",
+  "signup.button": "Подписаться",
+  "signup.message": "Есть аккаунт? <0>Войти</0>"
+}

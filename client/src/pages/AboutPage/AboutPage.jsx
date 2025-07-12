@@ -21,6 +21,7 @@ import {
   siNextdotjs,
 } from "simple-icons";
 import { SimpleIcon } from "../../components/SimpleIcon/SimpleIcon";
+import { Trans, useTranslation } from "react-i18next";
 
 const icons = [
   siHtml5,
@@ -44,38 +45,34 @@ const icons = [
 ];
 
 export const AboutPage = () => {
+  const { t } = useTranslation();
+
   return (
     <section className={cls.about}>
       <div className="container">
         <div className={cls.about_intro}>
           <div className={cls.about_content}>
-            <h1 className={cls.about_title}>Why hello there!</h1>
+            <h1 className={cls.about_title}>
+              {t("about.intro.content.title")}
+            </h1>
             <div className={cls.about_description}>
               <p className={cls.about_paragraph}>
-                You probably already know my name — so let me just share who I
-                am.
+                {t("about.intro.content.one")}
               </p>
 
               <p className={cls.about_paragraph}>
-                I'm a full-stack developer from Ingushetia. I enjoy creating web
-                platforms that make people’s lives a little easier, more
-                connected, and more meaningful.
+                {t("about.intro.content.two")}
               </p>
 
               <p className={cls.about_paragraph}>
-                I believe the Internet should remain open and free — and I do
-                what I can as a developer to help keep that idea alive. Whether
-                I'm writing backend logic or designing interfaces, I try to
-                build things that are not just functional, but thoughtful.
+                {t("about.intro.content.three")}
               </p>
 
               <p className={cls.about_paragraph}>
-                This isn't just what I do. It's how I think.
+                {t("about.intro.content.four")}
               </p>
 
-              <p className={cls.about_p_s}>
-                P.s such a beautiful gif, I couldn’t resist including it :^
-              </p>
+              <p className={cls.about_p_s}>{t("about.intro.content.five")}</p>
             </div>
           </div>
 
@@ -85,46 +82,66 @@ export const AboutPage = () => {
         </div>
         <div className={cls.about_table}>
           <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Locations</h6>
-            <div className={cls.cell_content}>Ingushetia</div>
-          </div>
-
-          <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Experience</h6>
-            <div className={cls.cell_content}>1 year</div>
-          </div>
-
-          <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Superpower</h6>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_one")}
+            </h6>
             <div className={cls.cell_content}>
-              Doing everything at the last minute
+              {t("about.table_cell.desc_one")}
             </div>
           </div>
 
           <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Reading</h6>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_two")}
+            </h6>
             <div className={cls.cell_content}>
-              The Choice by <br />
-              Edith Eva Eger
+              {t("about.table_cell.desc_two")}
             </div>
           </div>
 
           <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Hobby</h6>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_three")}
+            </h6>
             <div className={cls.cell_content}>
-              Programming,
-              <br />
-              Reading
+              {t("about.table_cell.desc_three")}
             </div>
           </div>
 
           <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Spirit animal</h6>
-            <div className={cls.cell_content}>Lazy fox</div>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_four")}
+            </h6>
+            <div className={cls.cell_content}>
+              <Trans
+                i18nKey={"about.table_cell.desc_four"}
+                components={{ br: <br /> }}
+              />
+            </div>
           </div>
 
           <div className={cls.cell}>
-            <h6 className={cls.cell_title}>Use</h6>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_five")}
+            </h6>
+            <div className={cls.cell_content}>
+              {t("about.table_cell.desc_five")}
+            </div>
+          </div>
+
+          <div className={cls.cell}>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_six")}
+            </h6>
+            <div className={cls.cell_content}>
+              {t("about.table_cell.desc_six")}
+            </div>
+          </div>
+
+          <div className={cls.cell}>
+            <h6 className={cls.cell_title}>
+              {t("about.table_cell.title_seven")}
+            </h6>
             <div className={cls.cell_icons}>
               {icons.map((el) => (
                 <SimpleIcon icon={el} />

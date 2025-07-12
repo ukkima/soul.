@@ -3,6 +3,7 @@ import { EllipsisVertical, ArrowDownToLine, Play, Pause } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { useClickOutside } from "../../hooks/useClickOutside";
+import { useTranslation } from "react-i18next";
 
 export const AudioPlayer = (props) => {
   const { img, name, author, audio, onActive, isActive } = props;
@@ -11,6 +12,8 @@ export const AudioPlayer = (props) => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+
+  const { t } = useTranslation();
 
   const audioRef = useRef(null);
   const menuRef = useRef(null);
@@ -127,7 +130,7 @@ export const AudioPlayer = (props) => {
             className={classNames(cls.sub_button, isOpen ? cls.active : "")}
           >
             <ArrowDownToLine />
-            Download Song
+            {t("home.audio.download_button")}
           </a>
         </div>
       </div>

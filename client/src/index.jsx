@@ -5,6 +5,8 @@ import App from "./App.jsx";
 import "./styles/index.scss";
 import { ModalRouterProvider } from "./contexts/ModalRouterContext.jsx";
 
+import i18n from "./utils/i18n.js";
+
 const root = createRoot(document.getElementById("root"));
 
 root.render(

@@ -4,13 +4,19 @@ import { useContext, useEffect, useState } from "react";
 import { Link, useLocation } from "react-router";
 import { ModalRouterContext } from "../../contexts/ModalRouterContext";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "react-redux";
+import { AuthButtons } from "../AuthButtons/AuthButtons";
+import { UserDropDown } from "../UserDropDown/UserDropDown";
+import { getAuthUser, getAuthLoading } from "../../store/selectors/index.js";
+import { SkeletonCustom } from "../Skeleton/Skeleton.jsx";
 
 export const Header = () => {
   const location = useLocation();
   const [scrolled, setScrolled] = useState(false);
-
   const [background, setBackground] = useContext(ModalRouterContext);
   const { t } = useTranslation();
+  const user = useSelector(getAuthUser);
+  const loading = useSelector(getAuthLoading);
 
   // TODO learn render live component and location, if, []
   useEffect(() => {
@@ -57,26 +63,13 @@ export const Header = () => {
               </li>
             </ul>
 
-            <div className={cls.nav_buttons}>
-              <Link
-                to={"/login"}
-                state={{ background: location }}
-                className={classNames(
-                  cls.nav_btn,
-                  cls.login,
-                  scrolled && cls.active
-                )}
-              >
-                {t("header.login")}
-              </Link>
-              <Link
-                to={"/signup"}
-                state={{ background }}
-                className={classNames(cls.nav_btn, cls.signup)}
-              >
-                {t("header.signup")}
-              </Link>
-            </div>
+            {loading ? (
+              <SkeletonCustom isCircle={true} height={40} width={40}/>
+            ) : user ? (
+              <UserDropDown user={user} background={background} />
+            ) : (
+              <AuthButtons background={background} scrolled={scrolled} />
+            )}
           </nav>
         </div>
       </div>

@@ -30,14 +30,15 @@
   "about.table_cell.desc_five": "Programming, Reading",
   "about.table_cell.desc_six": "Lazy fox",
 
+  "auth.input.fullname": "Enter your fullname",
   "auth.input.username": "Enter your username",
   "auth.input.password": "Enter your password",
 
   "login.title": "Welcome back to Soul.",
   "login.button": "Log In",
-  "login.message": "Don't have an account? <0>Sign up</0>",
+  "login.message": "Don't have an account? <0>Sign Up</0>",
 
   "signup.title": "Welcome to Soul.",
   "signup.button": "Sign Up",
-  "signup.message": "Have an account? <0>Sign Up</0>"
+  "signup.message": "Have an account? <0>Log In</0>"
 }

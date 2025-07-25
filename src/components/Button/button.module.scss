@@ -1,0 +1,40 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+}
+
+.loading {
+  opacity: 0.8;
+}
+
+.filled {
+  padding: 10px 0;
+
+  color: #000;
+
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+.transparent {
+  padding: 8px 8px;
+
+  background-color: #ffffff0b;
+
+  border-radius: 6px;
+  border: 1px solid #ffffff3c;
+
+  &:hover {
+    background-color: #ffffff10;
+  }
+
+  &:active {
+    background-color: #ffffff14;
+  }
+}

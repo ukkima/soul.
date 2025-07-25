@@ -1,0 +1,74 @@
+.UserDropDown {
+  position: relative;
+}
+
+.menu {
+  min-width: max-content;
+  padding: 10px 8px;
+
+  position: absolute;
+  top: 130%;
+  left: 50%;
+  transform: translate(-50%, 10px);
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  text-align: left;
+
+  border-radius: 4px;
+  border: 1px solid #ffffff3c;
+
+  backdrop-filter: blur(20px);
+  background-color: #ffffff0f;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition: 0.2s linear;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: painted;
+
+    transform: translate(-50%, 0);
+  }
+}
+
+.user_info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user_text {
+  & p {
+    font-size: 16px;
+    font-weight: 400;
+  }
+}
+
+.button {
+  padding: 8px 6px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  text-align: left;
+
+  transition: 0.1s;
+
+  &:hover {
+    background-color: #ffffff1a;
+    border-radius: 4px;
+  }
+}
+
+.logout {
+  &:hover {
+    background-color: #ff8a8a1a;
+  }
+}

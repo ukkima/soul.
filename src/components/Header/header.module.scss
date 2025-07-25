@@ -16,7 +16,15 @@
   &.active {
     height: 64px;
 
-    backdrop-filter: blur(24px);
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      backdrop-filter: blur(24px);
+
+      transition: 0.3s liner;
+    }
   }
 }
 
@@ -64,49 +72,5 @@
     &::after {
       display: block;
     }
-  }
-}
-
-.nav_buttons {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.nav_btn {
-  padding: 6px 10px;
-
-  font-weight: 500;
-
-  border-radius: 6px;
-}
-
-.login {
-  background-color: transparent;
-
-  border: 1px solid #2e2e2e;
-
-  transition: 0.2s ease;
-
-  &:hover {
-    background-color: #131313;
-  }
-
-  &.active {
-    &:hover {
-      background-color: #0000003d;
-    }
-  }
-}
-
-.signup {
-  background-color: #ffffff;
-
-  color: #020202;
-
-  transition: 0.2s ease;
-
-  &:hover {
-    opacity: 0.8;
   }
 }

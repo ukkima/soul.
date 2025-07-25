@@ -1,0 +1,77 @@
+.wrapper {
+  padding: 74px 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: start;
+  gap: 28px;
+}
+
+.update_avatar {
+}
+
+.avatar_change_btn {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  margin-top: 16px;
+
+  text-align: center;
+
+  background-color: #ffffff0b;
+
+  border-radius: 6px;
+  border: 1px solid #ffffff3c;
+
+  &:hover {
+    background-color: #ffffff10;
+  }
+
+  &:active {
+    background-color: #ffffff14;
+  }
+
+  & > input {
+    display: none;
+  }
+}
+
+.profile_content {
+  max-width: 234px;
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.profile_content__input {
+  padding: 8px 8px;
+
+  border: 1px solid #ffffff3c;
+  border-radius: 6px;
+
+  background-color: #ffffff04;
+}
+
+.account_delete_btn {
+
+  padding: 8px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background-color: #c32727;
+
+  border-radius: 6px;
+
+  &:hover {
+    background-color: #c43434;
+  }
+
+  &:active {
+    background-color: #d23939;
+  }
+}

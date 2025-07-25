@@ -5,18 +5,26 @@ import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { SignupPage } from "./pages/SignupPage/SignupPage";
 import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
+import { ProfileUpdatePage } from "./pages/ProfileUpdatePage/ProfileUpdatePage";
 import { ScrollToHashElement } from "./components/ScrollToHashElement/ScrollToHashElement";
 import { Route, Routes, useLocation } from "react-router";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getFetchAuthUser } from "./store/thunks/index.js";
 
 function App() {
   const location = useLocation();
   const state = location.state;
   const background = state && state.background;
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getFetchAuthUser());
+  }, []);
 
   return (
     <div className="page">
       <Header />
-
       <main className="main">
         <ScrollToHashElement />
 
@@ -31,6 +39,8 @@ function App() {
         <Routes>
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
+
+          <Route path="/profile/update" element={<ProfileUpdatePage />} />
         </Routes>
       )}
 

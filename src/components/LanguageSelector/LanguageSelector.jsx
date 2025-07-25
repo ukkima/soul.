@@ -15,16 +15,7 @@ const langs = {
   },
 };
 
-const data = [
-  {
-    value: "en",
-    label: "English",
-  },
-  {
-    value: "ru",
-    label: "Русский",
-  },
-];
+const langsArray = Object.values(langs);
 
 export const LanguageSelector = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +23,7 @@ export const LanguageSelector = () => {
 
   const languageRef = useRef(null);
   const currentLanguage = i18n.language;
+  const normalizeLang = currentLanguage.split("-")[0];
 
   useClickOutside(languageRef, () => {
     setIsOpen(false);
@@ -47,14 +39,14 @@ export const LanguageSelector = () => {
       <button onClick={() => setIsOpen(!isOpen)} className={cls.selector_label}>
         <span className={cls.selector_label__content}>
           <Globe />
-          {langs[currentLanguage].label}
+          {langs[normalizeLang].label}
         </span>
         {isOpen ? <ChevronUp /> : <ChevronDown />}
       </button>
 
       {isOpen && (
         <div className={cls.selector_options}>
-          {data.map((option) => {
+          {langsArray.map((option) => {
             return (
               <button
                 key={option.value}

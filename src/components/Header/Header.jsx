@@ -64,7 +64,7 @@ export const Header = () => {
             </ul>
 
             {loading ? (
-              <SkeletonCustom isCircle={true} height={40} width={40}/>
+              <SkeletonCustom isCircle={true} height={38} width={38}/>
             ) : user ? (
               <UserDropDown user={user} background={background} />
             ) : (

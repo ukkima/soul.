@@ -3,13 +3,15 @@ import cls from "./userdropdown.module.scss";
 import classNames from "classnames";
 import { useClickOutside } from "../../hooks/useClickOutside";
 import { User, LogOut } from "lucide-react";
-import { $api } from "../../api";
 import { Link } from "react-router";
 import { UserAvatar } from "../UserAvatar/UserAvatar";
+import { useDispatch } from "react-redux";
+import { logoutAuthUser } from "../../store/thunks/index.js";
 
 export const UserDropDown = ({ user, background }) => {
   const [isOpen, setIsOpen] = useState(false);
   const userDropDownRef = useRef(null);
+  const dispatch = useDispatch();
 
   const onClick = () => {
     setIsOpen(!isOpen);
@@ -20,9 +22,11 @@ export const UserDropDown = ({ user, background }) => {
   });
 
   const handleLogout = async () => {
-    await $api.get("/auth/logout");
+    const res = await dispatch(logoutAuthUser());
 
-    window.location.href = "/";
+    if (logoutAuthUser.fulfilled.match(res)) {
+      window.location.href = "/";
+    }
   };
 
   return (
@@ -38,7 +42,7 @@ export const UserDropDown = ({ user, background }) => {
         </div>
 
         <Link
-          to={"/profile/update"}
+          to={"/user/update"}
           state={{ background }}
           onClick={() => setIsOpen(false)}
           className={classNames(cls.button)}

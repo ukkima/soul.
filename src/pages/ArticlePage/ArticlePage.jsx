@@ -1,22 +1,37 @@
-import { useSelector } from "react-redux";
 import cls from "./articlepage.module.scss";
 import { useParams } from "react-router";
 import { DateTime } from "luxon";
-import { getArticles } from "../../store/selectors/index.js";
+import { Like } from "../../components/Like/Like.jsx";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getFetchArticleByID } from "../../store/thunks/index.js";
+import { getArticle } from "../../store/selectors/getArticle.js";
+import { getArticlesLoading } from "../../store/selectors/index.js";
+import { ArticleSkeleton } from "../../components/ArticleSkeleton/ArticleSkeleton.jsx";
 
 export const ArticlePage = () => {
   const { id } = useParams();
-  const articlesList = useSelector(getArticles);
+  const dispatch = useDispatch();
+  const article = useSelector(getArticle);
+  const loading = useSelector(getArticlesLoading);
 
-  const article = articlesList.find((el) => el._id === id);
+  useEffect(() => {
+    const getArticle = async () => {
+      const res = await dispatch(getFetchArticleByID(id));
+    };
+
+    getArticle();
+  }, []);
 
   const dt = DateTime.fromISO(article?.createdAt);
 
   return (
     <>
-      {article && (
-        <article className={cls.article}>
-          <div className="container">
+      {loading ? (
+        <ArticleSkeleton />
+      ) : (
+        <div className={cls.wrapper}>
+          <article className={cls.article}>
             <div className={cls.article__wrapper}>
               <span className={cls.create_time}>
                 {dt.toLocaleString({
@@ -31,8 +46,12 @@ export const ArticlePage = () => {
               </div>
               <p className={cls.text_content}>{article.description}</p>
             </div>
+          </article>
+
+          <div className={cls.article_touch_feedback}>
+            <Like likes={article?.likes} articleId={id} />
           </div>
-        </article>
+        </div>
       )}
     </>
   );

@@ -1,3 +1,9 @@
+.wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
 .article {
   margin-top: 110px;
 }
@@ -24,8 +30,6 @@
 .image {
   margin-top: 20px;
 
-  width: 900px;
-
   & img {
     width: 100%;
     height: 600px;
@@ -35,7 +39,6 @@
 }
 
 .text_content {
-  max-width: 900px;
   margin: 20px auto 0;
 
   text-align: justify;
@@ -45,4 +48,8 @@
   color: #dbdbdb;
 
   line-height: 2em;
+}
+
+.article_touch_feedback {
+  margin-top: 10px;
 }

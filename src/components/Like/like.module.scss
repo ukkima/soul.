@@ -1,0 +1,13 @@
+.feedback_like {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.like_btn {
+  padding: 6px;
+
+  & svg {
+    display: block;
+  }
+}

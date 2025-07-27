@@ -5,7 +5,7 @@ import { AboutPage } from "./pages/AboutPage/AboutPage";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { SignupPage } from "./pages/SignupPage/SignupPage";
 import { ArticlePage } from "./pages/ArticlePage/ArticlePage";
-import { ProfileUpdatePage } from "./pages/ProfileUpdatePage/ProfileUpdatePage";
+import { UserUpdatePage } from "./pages/UserUpdatePage/UserUpdatePage.jsx";
 import { ScrollToHashElement } from "./components/ScrollToHashElement/ScrollToHashElement";
 import { Route, Routes, useLocation } from "react-router";
 import { useEffect } from "react";
@@ -40,7 +40,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<SignupPage />} />
 
-          <Route path="/profile/update" element={<ProfileUpdatePage />} />
+          <Route path="/user/update" element={<UserUpdatePage />} />
         </Routes>
       )}
 

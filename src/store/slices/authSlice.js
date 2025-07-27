@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { getFetchAuthUser, loginAuthUser } from "../thunks/index.js";
 import { signupAuthUser } from "../thunks/signupAuthUser.js";
+import {updateAuthUser} from "../thunks/updateAuthUser.js";
 
 const initialState = {
   user: null,
@@ -57,6 +58,17 @@ export const authSlice = createSlice({
         state.loading = false;
       })
       .addCase(loginAuthUser.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      });
+    builder
+      .addCase(updateAuthUser.pending, (state, action) => {
+        state.loading = true;
+      })
+      .addCase(updateAuthUser.fulfilled, (state, action) => {
+        state.loading = false;
+      })
+      .addCase(updateAuthUser.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

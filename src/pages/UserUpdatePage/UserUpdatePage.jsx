@@ -1,15 +1,15 @@
-import cls from "./profileupdatepage.module.scss";
+import cls from "./userupdatepage.module.scss";
 import { Modal } from "../../components/Modal/Modal";
 import { UserAvatar } from "../../components/UserAvatar/UserAvatar";
 import { useDispatch, useSelector } from "react-redux";
 import { Trash2 } from "lucide-react";
 import { useState } from "react";
-import { $api } from "../../api";
-import { authActions } from "../../store/slices/authSlice.js";
-import { imageUpload } from "../../utils/imageUpload";
-import {Button} from "../../components/Button/Button.jsx";
+import { Button } from "../../components/Button/Button.jsx";
+import { updateAuthUser } from "../../store/thunks/updateAuthUser.js";
+import { getAuthLoading } from "../../store/selectors/index.js";
+import { deleteAuthUser } from "../../store/thunks/deleteAuthUser.js";
 
-export const ProfileUpdatePage = () => {
+export const UserUpdatePage = () => {
   const [image, setImage] = useState();
   const { user } = useSelector((state) => state.auth);
   const [dateForm, setDateForm] = useState({
@@ -17,8 +17,10 @@ export const ProfileUpdatePage = () => {
     fullname: user?.fullname,
     username: user?.username,
   });
+  const loading = useSelector(getAuthLoading);
+  const dispatch = useDispatch();
 
-  const handleChange = (e) => {
+  const handleValue = (e) => {
     setDateForm({ ...dateForm, [e.target.name]: e.target.value });
   };
 
@@ -28,26 +30,25 @@ export const ProfileUpdatePage = () => {
     setImage(inputImage);
   };
 
-  const dispatch = useDispatch();
-
-  const onSubmit = async (e) => {
+  const onSubmitUpdate = async (e) => {
     e.preventDefault();
-
-    const imageData = await imageUpload(image);
 
     const data = {
       ...dateForm,
-      avatar: imageData,
+      avatar: image,
     };
-    dispatch(authActions.setUser(data));
 
-    const res = await $api.patch("/auth/update", data);
+    dispatch(updateAuthUser(data));
   };
 
-  const onDelete = async () => {
-    await $api.delete("/auth/delete");
+  const onClickDelete = async (e) => {
+    e.preventDefault();
 
-    window.location.href = "/";
+    const res = await dispatch(deleteAuthUser());
+
+    if (deleteAuthUser.fulfilled.match(res)) {
+      window.location.href = "/";
+    }
   };
 
   return (
@@ -71,12 +72,12 @@ export const ProfileUpdatePage = () => {
               <input onChange={handleImage} type="file" />
             </label>
           </div>
-          <form onSubmit={onSubmit} className={cls.profile_content}>
+          <form onSubmit={onSubmitUpdate} className={cls.profile_content}>
             <input
               name="fullname"
               type="text"
               value={dateForm.fullname}
-              onChange={handleChange}
+              onChange={handleValue}
               placeholder="Enter fullname"
               required
               className={cls.profile_content__input}
@@ -85,15 +86,17 @@ export const ProfileUpdatePage = () => {
               name="username"
               type="text"
               value={dateForm.username}
-              onChange={handleChange}
+              onChange={handleValue}
               placeholder="Enter username"
               required
               className={cls.profile_content__input}
             />
 
-            <Button loading={true} typeStyle={"transparent"}>Update Account</Button>
+            <Button type={"submit"} loading={loading} typeStyle={"transparent"}>
+              Update Account
+            </Button>
 
-            <button onClick={onDelete} className={cls.account_delete_btn}>
+            <button type={"button"} onClick={onClickDelete} className={cls.account_delete_btn}>
               <Trash2 />
               Delete Account
             </button>
